@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		ZrFcZrXDF9YlWUsofbW+d62bWzo=
+		AJGgNcUSXdbHlhuYRzEY6t67yss=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		Qgja90EUivKmnW1dZMPTi23XzcY=
+		hT2AfAV39jWpFyhpQeRA1Wn7Q0U=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,11 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		Wxdu2x5OoD+jhC+WGN3V+C5SEmI=
+		aAdUU/Bq4ejDznulWC3Uf3PpbWM=
+		</data>
+		<key>flutter_assets/assets/fonts/Oxygen-Regular.ttf</key>
+		<data>
+		h4SsHR8OMYmd4KmvNvVd3e6Mfkw=
 		</data>
 		<key>flutter_assets/assets/images/ellipse1.png</key>
 		<data>
@@ -58,7 +62,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		QDpYQ41mideRh0gyesC+1T5VJ8g=
+		9T1XjceTGCSsJyTnO75mXbZH2yo=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -79,14 +83,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5ChiVMPK9hS+DP0Aa0JVfHs8BsHN/eUme+fRi1nb+z4=
+			s9/Nqq4snIRnGf+UBT8GlWqGYCTBBzILd1sDWFucpIY=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			xHT3JMaF/h5ckCyKloi02dwQIlghlpEwxuSlWNN1pNM=
+			tO7dqMWnIz9D+8U9elkiL296zLSryPBxQsbKcG3njiY=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -100,7 +104,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			MBvw1JYzwX4W/vEy06gvfW5dxFw7faDt0U2BIjdkL7s=
+			mrN+x1DqTEtmbF983KwzQPnrVAzh3R/S61GZA5dsbxQ=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/fonts/Oxygen-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			oiJ7im9WpGL7bWFGVSckiT5+ufeAumIuiwz1cC7yqhE=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/images/ellipse1.png</key>
@@ -163,7 +174,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XxtJe3JPFpl5FtsSWonJQut1yfxfMVZHwSZ6mbfr+lY=
+			QWssU8RbWpSpNRcYCIxC2QKjO19QhgI7gtPsnmbIy2I=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

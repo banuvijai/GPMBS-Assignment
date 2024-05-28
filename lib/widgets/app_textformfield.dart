@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:gpmbs/controllers/user/user_controller.dart';
 
 import '../utils/dimensions.dart';
 import '../utils/s.dart';
@@ -20,9 +21,10 @@ class AppTextFormField extends StatelessWidget {
   Function? rightPaddingOnTap;
   final Color? enabledBorderColor;
   final Color? focusedBorderColor;
+  final OnChanged;
   final validator;
   AppTextFormField({Key? key,this.controller,this.head,this.maxLine,this.hint,this.textInputType,this.leftPaddingIcon,this.rightPaddingIcon,this.initialValue,this.cardHeight,
-    this.isReadOnly=false,this.rightPaddingOnTap,this.enabledBorderColor,this.focusedBorderColor,this.validator}) : super(key: key);
+    this.isReadOnly=false,this.rightPaddingOnTap,this.enabledBorderColor,this.focusedBorderColor,this.validator,this.OnChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class AppTextFormField extends StatelessWidget {
         borderRadius: BorderRadius.circular(15)),
 
         child: TextFormField(
+          onChanged:OnChanged,
           controller: controller,
           maxLines: maxLine??1,
           readOnly: isReadOnly!,
@@ -58,5 +61,6 @@ class AppTextFormField extends StatelessWidget {
       ),
     );
   }
+
 }
 

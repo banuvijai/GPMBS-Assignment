@@ -1,18 +1,12 @@
-import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:get/get.dart' hide Response;
 import '../models/user/user_model.dart';
 import 'api_urls.dart';
 import 'dio_client.dart';
 
 
 class APIServices {
-  late DioClient _dioClient;
   late final Dio _dio;
-
-  APIServices(this._dio) {
-    _dioClient = DioClient(_dio);
-  }
+  APIServices(this._dio);
 
   Options dioOptions({
     required String token,

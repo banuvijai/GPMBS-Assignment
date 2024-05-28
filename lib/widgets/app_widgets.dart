@@ -1,9 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../utils/dimensions.dart';
 import '../utils/s.dart';
 
@@ -94,11 +91,11 @@ class AppWidgets{
   static Widget loadingWidget(){
     return Center(
       child: SizedBox(
-        width: 30,
-        height: 30,
+        width: 40,
+        height: 40,
         child: CircularProgressIndicator(
-          valueColor: AlwaysStoppedAnimation<Color>(S.colors.colorPrimary),
-          strokeWidth: 0.8,
+          valueColor: AlwaysStoppedAnimation<Color>(S.colors.grey),
+          strokeWidth: 1.2,
         ),
       ),
     );

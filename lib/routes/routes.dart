@@ -12,7 +12,6 @@ class Routes {
 
 
   static Route routesGenerator(RouteSettings settings) {
-    final args = settings.arguments;
 
     switch (settings.name) {
       case splashScreen:
