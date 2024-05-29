@@ -19,7 +19,6 @@ class UserDetailScreen extends StatelessWidget {
         body: Stack(
           children: [
             const BackGroundWidget(),
-
             Positioned(
                 top: MediaQuery.of(context).size.height * 0.02,
                 left: MediaQuery.of(context).size.width * 0.05,
@@ -28,7 +27,6 @@ class UserDetailScreen extends StatelessWidget {
               top: MediaQuery.of(context).size.height * 0.35,
               child:userDetailSection(context),
             ),
-
           ],
         ),
       ),
@@ -39,7 +37,7 @@ class UserDetailScreen extends StatelessWidget {
     return  Container(
       height: MediaQuery.of(context).size.height * 0.30,
       width: MediaQuery.of(context).size.width * 0.90,
-      decoration: BoxDecoration(color: S.colors.colorTransparent,
+      decoration: BoxDecoration(color: S.colors.greyShade,
         borderRadius:BorderRadius.circular(15.0),
         border: Border.all(color: S.colors.grey),
       ),
@@ -48,7 +46,7 @@ class UserDetailScreen extends StatelessWidget {
         children: [
           CircleAvatar(radius: 50,
             backgroundColor: S.colors.circleAvatarColor,
-            child: const Icon(Icons.person,size: 70,),),
+            child: Icon(Icons.person,size: 70,color: S.colors.black,),),
           const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(
               text:userController.userList.value.results![selectedIndex!].name.toString(),
@@ -59,13 +57,12 @@ class UserDetailScreen extends StatelessWidget {
   }
 
   Widget userDetailSection(context){
-    var userDetails = userController.userList.value.results![selectedIndex!];
+    final userDetails = userController.userList.value.results![selectedIndex!];
     return Container(
       height: MediaQuery.of(context).size.height * 0.9,
       width:MediaQuery.of(context).size.width,
       decoration: const BoxDecoration(color:Colors.transparent),
       child: Column(
-
         children: [
           const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(text:"Birth Year : "
@@ -83,7 +80,6 @@ class UserDetailScreen extends StatelessWidget {
           AppWidgets.buildText(text:"Gender : "
               "${userDetails.gender}".toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
-
         ],
       ),
     );

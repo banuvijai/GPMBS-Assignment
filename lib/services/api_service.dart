@@ -3,7 +3,6 @@ import 'package:flutter/foundation.dart';
 import '../models/user/user_model.dart';
 import 'api_urls.dart';
 
-
 class APIServices {
   late final Dio _dio;
   APIServices(this._dio);
@@ -11,14 +10,12 @@ class APIServices {
   Options dioOptions({
     required String token,
     contentType
-
   }) {
     return Options(headers: <String, dynamic>{
       'Authorization': 'Bearer $token',
       'Content-Type':contentType
     });
   }
-
 
   Future<UserModel> getUsersAPI() async{
     Response response = await _dio.get(
@@ -29,9 +26,6 @@ class APIServices {
       }
       throw onError;
     });
-
     return UserModel.fromJson(response.data);
   }
-
-
 }

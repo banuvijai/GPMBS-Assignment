@@ -4,7 +4,6 @@ import 'package:gpmbs/utils/dimensions.dart';
 import 'package:gpmbs/views/user/user_details_screen.dart';
 import 'package:gpmbs/widgets/app_textformfield.dart';
 import 'package:gpmbs/widgets/app_widgets.dart';
-import 'package:gpmbs/widgets/background_widget.dart';
 import '../../controllers/user/user_controller.dart';
 import '../../utils/responsive_layout.dart';
 import '../../utils/s.dart';
@@ -19,7 +18,6 @@ class UserScreen extends StatefulWidget {
 class _UserScreenState extends State<UserScreen> {
 
   final UserController userController = Get.put(UserController());
-
 
   _UserScreenState() {
     userController.searchController.addListener(() {
@@ -37,28 +35,30 @@ class _UserScreenState extends State<UserScreen> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            const BackGroundWidget(),
-            AppTextFormField(
-              controller: userController.searchController,
-              rightPaddingIcon:Icons.search,
+      child: GestureDetector(
+        onTap: (){
+          FocusScopeNode currentFocus = FocusScope.of(context);
+          if (!currentFocus.hasPrimaryFocus) {
+            currentFocus.unfocus();
+          }
+        },
+        child: Scaffold(
+          backgroundColor:S.colors.greyShade,
+          resizeToAvoidBottomInset: false,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                AppTextFormField(
+                  controller: userController.searchController,
+                  rightPaddingIcon:Icons.search,
+                ),
+                userController.firstSearch ? listViewWidget(context) : _performSearch(),
+              ]
             ),
-
-            Positioned(
-              top: Responsive.isDesktop(context)?MediaQuery.of(context).size.height * 0.17
-                  :MediaQuery.sizeOf(context).width * 0.20,
-              left:Responsive.isDesktop(context)? MediaQuery.sizeOf(context).width * 0.05:2,
-              child:userController.firstSearch ? listViewWidget(context) : _performSearch(),
-            ),
-
-            const SizedBox(height: Dimensions.paddingSizeDefault,),
-          ]
+          ),
         ),
       ),
     );
@@ -72,23 +72,27 @@ class _UserScreenState extends State<UserScreen> {
       child: Obx(()=> userController.isLoading.value?
       AppWidgets.loadingWidget():
       ListView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: userController.userList.value.results!.length,
         itemBuilder: (context, index) {
-          var user = userController.userList.value.results![index];
+          final user = userController.userList.value.results![index];
           return GestureDetector(
             onTap: (){
               Get.to(() => UserDetailScreen(selectedIndex: index));
             },
             child: Container(
                 padding: const EdgeInsets.all(15.0),
-                margin: const EdgeInsets.fromLTRB(12.0,8.0,12.0,8.0),
+                margin: const EdgeInsets.fromLTRB(12.0,6.0,12.0,6.0),
                 decoration: BoxDecoration(color:S.colors.lightGrey,
+                    border: Border.all(color: S.colors.grey),
                     borderRadius: BorderRadius.circular(15.0)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
+                   children: [
                     CircleAvatar(radius: 20,
-                      backgroundColor: S.colors.circleAvatarColor,child: const Icon(Icons.person),),
+                      backgroundColor: S.colors.circleAvatarColor,child:
+                      Icon(Icons.person,color: S.colors.black,),),
                     const SizedBox(width: Dimensions.paddingSizeExtraLarge,),
                     AppWidgets.buildText(text:user.name.toString(),
                         textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
@@ -103,18 +107,12 @@ class _UserScreenState extends State<UserScreen> {
   }
 
   Widget _performSearch() {
-    userController.filteredList=[];
     userController.filterListName = [];
     for (int i = 0; i <userController.userList.value.results!.length; i++) {
       var item = userController.userList.value.results![i].name;
       if (item!.toLowerCase().contains(userController.query.toLowerCase())) {
-        userController.filteredList!.add(item);
         userController.filterListName!.add(userController.userList.value.results![i].name.toString());
-        // print(userController.filteredList);
-        // print("Selected Index UI");
-        // print(userController.userList.value.results![i].name!.indexOf(item));
         userController.filterListIndex=i;
-        // print(userController.userList.value.results![userController.userList.value.results![i].name!.indexOf(item)].name!);
       }
     }
     return _createFilteredListView();
@@ -127,16 +125,16 @@ class _UserScreenState extends State<UserScreen> {
         width:MediaQuery.of(context).size.width,
         child:ListView.builder(
           itemCount: userController.filterListName!.length,
-          itemBuilder: (context, index) {
+          itemBuilder: (context,index) {
             return GestureDetector(
               onTap: (){
-                // print("Index --> ${userController.userList.value.results![userController.userList.value.results![userController.filterListIndex!].filteredIndex!].filteredIndex!}");
                 Get.to(() => UserDetailScreen(selectedIndex: userController.filterListIndex));
               },
               child: Container(
                   padding: const EdgeInsets.all(15.0),
-                  margin: const EdgeInsets.all(10.0),
+                  margin: const EdgeInsets.fromLTRB(12.0,4.0,12.0,4.0),
                   decoration: BoxDecoration(color:S.colors.lightGrey,
+                      border: Border.all(color: S.colors.grey),
                       borderRadius: BorderRadius.circular(15.0)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -154,10 +152,11 @@ class _UserScreenState extends State<UserScreen> {
         )
     ):
     Container(
-        margin: const EdgeInsets.all(20),
-        height: 40,
-        width: MediaQuery.of(context).size.width * 0.9,
+        margin: const EdgeInsets.all(15),
+        height: 50,
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(color: S.colors.white,
+            border: Border.all(color: S.colors.grey),
             borderRadius: BorderRadius.circular(10)),
         child: Center(child: AppWidgets.buildText(text:'No User Found')));
   }

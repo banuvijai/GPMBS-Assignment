@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../utils/dimensions.dart';
 import '../utils/s.dart';
 
 class AppTextFormField extends StatelessWidget {
@@ -23,13 +22,13 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: Dimensions.paddingSizeExtraSmall6,left: Dimensions.paddingSizeExtraSmall2,bottom: Dimensions.paddingSizeSmall),
-      child: Container(
-        margin: const EdgeInsets.all(10),
-        decoration: BoxDecoration(color: S.colors.white,
-        borderRadius: BorderRadius.circular(15)),
-
+    return Container(
+      height: 60,
+      margin: const EdgeInsets.all(12),
+      decoration: BoxDecoration(color: S.colors.white,
+      border: Border.all(color: S.colors.grey),
+      borderRadius: BorderRadius.circular(15)),
+      child: Center(
         child: TextFormField(
           onChanged:onChanged,
           controller: controller,
@@ -37,17 +36,12 @@ class AppTextFormField extends StatelessWidget {
           readOnly: isReadOnly!,
           keyboardType: textInputType??TextInputType.text,
           decoration: InputDecoration(
-            suffixIcon: Icon(rightPaddingIcon),
-            floatingLabelBehavior: FloatingLabelBehavior.never,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(
-                color: S.colors.grey,
-              ),
-            ),
+            suffixIcon: Icon(rightPaddingIcon,size: 30,),
+             floatingLabelBehavior: FloatingLabelBehavior.never,
+            border:InputBorder.none,
             hintMaxLines: 4,
             alignLabelWithHint: true,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 15,vertical: 4),
+             contentPadding: const EdgeInsets.all(25.0),
             labelText: hint??'Search',
             labelStyle: S.textStyles.hintStyle,
           ),
