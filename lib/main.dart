@@ -22,7 +22,7 @@ class UserInfoApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: Routes.splashScreen,
       onGenerateRoute: Routes.routesGenerator,
-      home:  UserScreen(),
+      home:  const UserScreen(),
       theme: ThemeData(
         scaffoldBackgroundColor:S.colors.colorTransparent,
         primarySwatch:Colors.grey,

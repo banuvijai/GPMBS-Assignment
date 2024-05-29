@@ -37,35 +37,13 @@ class AppWidgets{
     );
   }
 
-  static Widget backButton(
-      {Color? color, double? size, Function? onTap, dynamic result}) {
-    return GestureDetector(
-      onTap: () {
-        print('Back => -- Click --');
-        if (onTap != null) {
-          print('Back => -- Click - 3  --');
-          return onTap();
-        }else{
-          print('Back => -- Click - 4  --');
-        }
-      },
-      child: Container(
-        padding: EdgeInsets.only(left: Dimensions.PADDING_SIZE_SMALL),
-        child: Icon(
-          Platform.isIOS?Icons.arrow_back_ios:Icons.arrow_back,
-          color: color ?? Colors.black,
-          size: size ?? 28,
-        ),
-      ),
-    );
-  }
 
   static Widget backButtonWithTap(
       {Color? color, double? size, Function? onTap, dynamic result}) {
     return GestureDetector(
       onTap: ()=>onTap!.call(),
       child: Container(
-        padding: const EdgeInsets.only(left: Dimensions.PADDING_SIZE_DEFAULT),
+        padding: const EdgeInsets.only(left: Dimensions.paddingSizeDefault),
         child: Icon(
           Platform.isIOS?Icons.arrow_back_ios:Icons.arrow_back,
           color: color ?? Colors.black,

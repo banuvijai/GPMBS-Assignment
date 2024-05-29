@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:gpmbs/utils/dimensions.dart';
 
 class S{
@@ -33,7 +32,7 @@ class _TextStyle{
       {double? fontSize, FontWeight? fontWeight, Color? color}) {
     return TextStyle(
       fontFamily: 'Oxygen',
-      fontSize: fontSize ?? Dimensions.FONT_SIZE_SMALL,
+      fontSize: fontSize ?? Dimensions.fontSizeSmall,
       fontStyle: FontStyle.normal,
       fontWeight: fontWeight ?? FontWeight.normal,
       color: color ?? S.colors.white,
@@ -46,7 +45,7 @@ class _TextStyle{
     return TextStyle(
         fontFamily: 'Oxygen',
         decoration: textDecoration ?? TextDecoration.none,
-        fontSize: fontSize ?? Dimensions.FONT_SIZE_EXTRA_LARGE,
+        fontSize: fontSize ?? Dimensions.fontSizeExtraLarge,
         fontWeight: fontWeight ?? FontWeight.w700,
         color: color ?? S.colors.black);
   }
@@ -68,7 +67,7 @@ class _TextStyle{
     return TextStyle(
       fontFamily: 'Oxygen',
       decoration: textDecoration ?? TextDecoration.none,
-      fontSize: fontSize ?? Dimensions.FONT_SIZE_DEFAULT,
+      fontSize: fontSize ?? Dimensions.fontSizeDefault,
       color: color ?? S.colors.black,
       fontWeight: fontWeight ?? FontWeight.w400,
       fontStyle: fontStyle ?? FontStyle.normal,

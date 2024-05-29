@@ -1,11 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:gpmbs/utils/dimensions.dart';
 import 'package:gpmbs/widgets/background_widget.dart';
 import '../../controllers/user/user_controller.dart';
-import '../../utils/responsive_layout.dart';
 import '../../utils/s.dart';
 import '../../widgets/app_widgets.dart';
 
@@ -52,7 +49,7 @@ class UserDetailScreen extends StatelessWidget {
           CircleAvatar(radius: 50,
             backgroundColor: S.colors.circleAvatarColor,
             child: const Icon(Icons.person,size: 70,),),
-          const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+          const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(
               text:userController.userList.value.results![selectedIndex!].name.toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
@@ -70,19 +67,19 @@ class UserDetailScreen extends StatelessWidget {
       child: Column(
 
         children: [
-          const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+          const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(text:"Birth Year : "
               "${userDetails.birthYear}".toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
-          const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+          const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(text:"Height : "
               "${userDetails.height}".toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
-          const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+          const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(text:"Skin Colour : "
               "${userDetails.skinColor}".toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),
-          const SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT,),
+          const SizedBox(height: Dimensions.paddingSizeDefault,),
           AppWidgets.buildText(text:"Gender : "
               "${userDetails.gender}".toString(),
               textStyle: S.textStyles.titleTextStyle(fontSize: 14)),

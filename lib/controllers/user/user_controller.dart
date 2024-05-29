@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart' hide Response;
 import '../../models/user/user_model.dart';
 import '../../services/api_service.dart';
 
-var allBooks;
 class UserController extends GetxController {
   final APIServices _apiService = Get.find<APIServices>();
   TextEditingController searchController = TextEditingController();
@@ -39,7 +39,9 @@ class UserController extends GetxController {
         isLoading(false);
       }
     } catch(e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
       isLoading(false);
     }
   }

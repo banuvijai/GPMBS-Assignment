@@ -16,13 +16,13 @@ class Routes {
     switch (settings.name) {
       case splashScreen:
         return GetPageRoute(
-          page: () => SplashScreen(),
+          page: () => const SplashScreen(),
           settings: settings,
         );
 
       case userScreen:
         return GetPageRoute(
-          page: () => UserScreen(),
+          page: () => const UserScreen(),
           settings: settings,
         );
 

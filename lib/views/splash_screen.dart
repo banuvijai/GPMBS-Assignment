@@ -14,8 +14,9 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  void initState() {
 
+  @override
+  void initState() {
     Future.delayed(const Duration(seconds:2),() async {
       Get.toNamed(Routes.userScreen);
     });
@@ -26,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        BackGroundWidget(),
+        const BackGroundWidget(),
         Positioned(
           top: MediaQuery.of(context).size.height * 0.45,
           left: MediaQuery.of(context).size.width * 0.24,
