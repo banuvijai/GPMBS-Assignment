@@ -56,6 +56,8 @@ class _UserScreenState extends State<UserScreen> {
               left:Responsive.isDesktop(context)? MediaQuery.sizeOf(context).width * 0.05:2,
               child:userController.firstSearch ? listViewWidget(context) : _performSearch(),
             ),
+
+            const SizedBox(height: Dimensions.paddingSizeDefault,),
           ]
         ),
       ),
